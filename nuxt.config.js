@@ -58,6 +58,13 @@ module.exports = {
         ]
       ]
     },
+    postcss: {
+      plugins: {
+        'postcss-preset-env': {
+          autoprefixer: { grid: true }
+        }
+      }
+    },
     /*
     ** You can extend webpack config here
     */
@@ -70,13 +77,6 @@ module.exports = {
           loader: 'eslint-loader',
           exclude: /(node_modules)/
         })
-      }
-    }
-  },
-  postcss: {
-    plugins: {
-      'postcss-preset-env': {
-        autoprefixer: { grid: true }
       }
     }
   }
