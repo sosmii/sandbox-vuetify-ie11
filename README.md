@@ -1,22 +1,4 @@
 # zzz-sandbox-vuetify-ie11
 
-> My superb Nuxt.js project
-
-## Build Setup
-
-``` bash
-# install dependencies
-$ npm install
-
-# serve with hot reload at localhost:3000
-$ npm run dev
-
-# build for production and launch server
-$ npm run build
-$ npm start
-
-# generate static project
-$ npm run generate
-```
-
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+ギョームでIE11対応したらVuetifyのMaterial Iconsが表示されなくなったので、  
+環境特有の問題かどうか最小構成で調べるためのレポジトリ
