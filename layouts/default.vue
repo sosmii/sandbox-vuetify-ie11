@@ -1,3 +1,3 @@
-<template>
-  <nuxt/>
+<template lang="pug">
+  nuxt
 </template>
