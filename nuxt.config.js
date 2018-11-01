@@ -47,6 +47,17 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    vendor: ['babel-polyfill'],
+    babel: {
+      presets: [
+        [
+          '@nuxtjs/babel-preset-app',
+          {
+            targets: { ie: 11 }
+          }
+        ]
+      ]
+    },
     /*
     ** You can extend webpack config here
     */
@@ -59,6 +70,13 @@ module.exports = {
           loader: 'eslint-loader',
           exclude: /(node_modules)/
         })
+      }
+    }
+  },
+  postcss: {
+    plugins: {
+      'postcss-preset-env': {
+        autoprefixer: { grid: true }
       }
     }
   }
