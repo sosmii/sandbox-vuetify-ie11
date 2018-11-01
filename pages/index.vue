@@ -1,65 +1,104 @@
 <template>
-  <v-layout
-    column
-    justify-center
-    align-center>
-    <v-flex
-      xs12
-      sm8
-      md6>
-      <div class="text-xs-center">
-        <logo/>
-        <vuetify-logo/>
-      </div>
+  <v-layout row>
+    <v-flex 
+      xs12 
+      sm6 
+      offset-sm3>
       <v-card>
-        <v-card-title class="headline">Welcome to the Vuetify + Nuxt.js template</v-card-title>
-        <v-card-text>
-          <p>Vuetify is a progressive Material Design component framework for Vue.js. It was designed to empower developers to create amazing applications.</p>
-          <p>For more information on Vuetify, check out the <a
-            href="https://vuetifyjs.com"
-            target="_blank">documentation</a>.</p>
-          <p>If you have questions, please join the official <a
-            href="https://chat.vuetifyjs.com/"
-            target="_blank"
-            title="chat">discord</a>.</p>
-          <p>Find a bug? Report it on the github <a
-            href="https://github.com/vuetifyjs/vuetify/issues"
-            target="_blank"
-            title="contribute">issue board</a>.</p>
-          <p>Thank you for developing with Vuetify and I look forward to bringing more exciting features in the future.</p>
-          <div class="text-xs-right">
-            <em><small>&mdash; John Leider</small></em>
-          </div>
-          <hr class="my-3">
-          <a
-            href="https://nuxtjs.org/"
-            target="_blank">Nuxt Documentation</a>
-          <br>
-          <a
-            href="https://github.com/nuxt/nuxt.js"
-            target="_blank">Nuxt GitHub</a>
-        </v-card-text>
-        <v-card-actions>
+        <v-toolbar 
+          color="teal" 
+          dark>
+          <v-toolbar-side-icon/>
+
+          <v-toolbar-title>Topics</v-toolbar-title>
+
           <v-spacer/>
-          <v-btn
-            color="primary"
-            flat
-            nuxt
-            to="/inspire">Continue</v-btn>
-        </v-card-actions>
+
+          <v-btn icon>
+            <v-icon>more_vert</v-icon>
+          </v-btn>
+        </v-toolbar>
+
+        <v-list>
+          <v-list-group
+            v-for="item in items"
+            v-model="item.active"
+            :key="item.title"
+            :prepend-icon="item.action"
+            no-action
+          >
+            <v-list-tile slot="activator">
+              <v-list-tile-content>
+                <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+              </v-list-tile-content>
+            </v-list-tile>
+
+            <v-list-tile
+              v-for="subItem in item.items"
+              :key="subItem.title"
+            >
+              <v-list-tile-content>
+                <v-list-tile-title>{{ subItem.title }}</v-list-tile-title>
+              </v-list-tile-content>
+
+              <v-list-tile-action>
+                <v-icon>{{ subItem.action }}</v-icon>
+              </v-list-tile-action>
+            </v-list-tile>
+          </v-list-group>
+        </v-list>
       </v-card>
     </v-flex>
   </v-layout>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-import VuetifyLogo from '~/components/VuetifyLogo.vue'
-
 export default {
-  components: {
-    Logo,
-    VuetifyLogo
+  data() {
+    return {
+      items: [
+        {
+          action: 'local_activity',
+          title: 'Attractions',
+          items: [{ title: 'List Item' }]
+        },
+        {
+          action: 'restaurant',
+          title: 'Dining',
+          active: true,
+          items: [
+            { title: 'Breakfast & brunch' },
+            { title: 'New American' },
+            { title: 'Sushi' }
+          ]
+        },
+        {
+          action: 'school',
+          title: 'Education',
+          items: [{ title: 'List Item' }]
+        },
+        {
+          action: 'directions_run',
+          title: 'Family',
+          items: [{ title: 'List Item' }]
+        },
+        {
+          action: 'healing',
+          title: 'Health',
+          items: [{ title: 'List Item' }]
+        },
+        {
+          action: 'content_cut',
+          title: 'Office',
+          items: [{ title: 'List Item' }]
+        },
+        {
+          action: 'local_offer',
+          title: 'Promotions',
+          items: [{ title: 'List Item' }]
+        }
+      ]
+    }
   }
 }
 </script>
