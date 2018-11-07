@@ -1,15 +1,15 @@
 <template lang="pug">
-v-layout(row='')
-  v-flex(xs12='', sm6='', offset-sm3='')
+v-layout(row)
+  v-flex(xs12, sm6, offset-sm3)
     v-card
-      v-toolbar(color='teal', dark='')
+      v-toolbar(color='teal', dark)
         v-toolbar-side-icon
           v-toolbar-title Topics
           v-spacer
-            v-btn(icon='')
+            v-btn(icon)
               v-icon more_vert
       v-list
-        v-list-group(v-for='item in items', v-model='item.active', :key='item.title', :prepend-icon='item.action', no-action='')
+        v-list-group(v-for='item in items', v-model='item.active', :key='item.title', :prepend-icon='item.action', no-action)
           v-list-tile(slot='activator')
             v-list-tile-content
               v-list-tile-title {{ item.title }}
