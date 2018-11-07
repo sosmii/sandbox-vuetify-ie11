@@ -20,6 +20,12 @@ module.exports = {
         href:
           'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons'
       }
+    ],
+    script: [
+      {
+        src:
+          'https://cdn.polyfill.io/v2/polyfill.min.js?features=default,fetch,Object.entries'
+      }
     ]
   },
 
@@ -47,24 +53,6 @@ module.exports = {
   ** Build configuration
   */
   build: {
-    vendor: ['babel-polyfill'],
-    babel: {
-      presets: [
-        [
-          '@nuxtjs/babel-preset-app',
-          {
-            targets: { ie: 11 }
-          }
-        ]
-      ]
-    },
-    postcss: {
-      plugins: {
-        'postcss-preset-env': {
-          autoprefixer: { grid: true }
-        }
-      }
-    },
     /*
     ** You can extend webpack config here
     */
